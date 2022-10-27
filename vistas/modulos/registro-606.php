@@ -1,0 +1,2051 @@
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1 class="col-xs-4" style="font-size: 30px"><i class="fa fa-file-text-o"></i>
+       REGISTRO 606
+        
+    </h1>
+     
+   
+   <a href="registro-606" class="btn btn-success"><i class="glyphicon glyphicon-saved" style="padding-right:5px"></i>Crear Nuevo</a>
+
+  <a href="reporte-606" class="btn btn-success"><i class="fa fa-server" style="padding-right:5px"></i>Reporte 606</a>
+   <a href="cuadre-itbis" class="btn btn-success"><i class="fa fa-pie-chart" style="padding-right:5px"></i>Cuadre Itbis</a>
+
+    <button class="btn btn-success" data-toggle="modal" data-target="#modalDescarga606"><i class="fa fa-file-text-o" style="padding-right:5px"></i>Descarga de TXT 606</button>
+
+
+ 
+      
+    </section>
+
+
+    <!-- Main content -->
+    <section class="content">
+
+ 
+
+      <div class="row">
+       <!--=================================================
+          EL FORMULARIO DE CRERAR VENTAS 
+
+        =======================================================-->
+
+        <div class="col-lg-6 col-xs-12">
+
+
+ 
+          
+          <div class="box box-success">
+ 
+            <div class="box-header with-border">
+       
+<button title = "Limpiar Formulario 606"class="btn btn-danger btn-xs btnLimpiar606 pull-right"><i class="fa fa-eraser"></i></button>
+
+
+          
+            </div>
+
+ <?php 
+if(isset($_GET["Limpiar606"]) && $_GET["Limpiar606"] == "SI"){
+unset($_SESSION["error"]);
+   unset($_SESSION["FechaFacturadia_606"]); 
+                          unset($_SESSION["Rnc_Factura_606"]); 
+                          unset($_SESSION["NCF606"]);
+                          unset($_SESSION["CodigoNCF606"]);
+                          unset($_SESSION["NCF_Modificado_606"]); 
+                          unset($_SESSION["Montototalbienes"]); 
+                          unset($_SESSION["Montototalservicios"]);
+                          unset($_SESSION["MontoITBIS"]); 
+                          unset($_SESSION["Propinalegal"]); 
+                          unset($_SESSION["ImpuestoSelectivo"]); 
+                          unset($_SESSION["OtrosImpuestos"]);
+                          unset($_SESSION["ITBIS_LLEVADO_A_COSTO"]);
+                          unset($_SESSION["ITBIS_Sujeto_a_Propocionalidad"]);
+                          unset($_SESSION["Nombre_Empresa_606"]);
+                          unset($_SESSION["FechaPagomes606"]);
+                          unset($_SESSION["FechaPagodia606"]);
+                          unset($_SESSION["Referencia"]); 
+                          unset($_SESSION["Descripcion"]);
+
+
+
+
+
+}
+
+
+
+
+  ?>
+
+<form role="form" method="post" class="Registro606">
+  
+            <div class="box-body">
+
+             
+                <div class="box">
+
+<input type="hidden"  id="RncEmpresa606" name="RncEmpresa606" value="<?php echo $_SESSION["RncEmpresaUsuario"];?>">
+  
+<input type="hidden" class="form-control" id="Usuariologueado" name="UsuarioLogueado" value="<?php echo $_SESSION["Nombre"]?>">
+
+<input type="hidden" id=NombreEmpresa606 value="<?php echo $_SESSION["NombreEmpresa"];?>">
+<input type="hidden" id=Tipo_Id_Empresa value="<?php echo $_SESSION["Tipo_Id_Empresa"];?>">
+
+<br>
+
+ 
+
+<div style="padding-right: 0px"  class="form-group col-lg-6">
+   
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+    <input type="text" class="form-control Fechames" maxlength="6" id="FechaFacturames_606" name="FechaFacturames_606" value="<?php if (isset($_SESSION['FechaFacturames606'])){ echo $_SESSION['FechaFacturames606'];}?>" placeholder="Año/Mes Ejemplo 202001" required >
+    
+   </div>  
+  
+  
+</div>
+
+<div style="padding-left: 0px" class="form-group col-lg-6">
+   
+
+  <div class="input-group">
+   <input type="text" class="form-control Fechadia" maxlength="2" id="FechaFacturadia_606" name="FechaFacturadia_606" value="<?php if (isset($_SESSION['FechaFacturadia_606'])){ echo $_SESSION['FechaFacturadia_606'];}?>" placeholder="Día Ejemplo 01" required autofocus>
+ 
+ </div>  
+  
+  
+</div>
+
+
+
+<div class="col-lg-12"></div>
+<br>
+<div class="col-xs-3" style="padding-right:0px">
+                     
+
+        <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                    
+      <?php  
+if(isset($_SESSION["NCF606"])){
+                         
+$NCF606 = $_SESSION["NCF606"];
+
+switch ($NCF606) {
+
+case 'B01':
+    echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>';
+break;
+case 'B03': 
+
+echo '<select class="form-control"  id="NCF606" name="NCF606" required> 
+              <option value="B03">B03</option>
+              <option value="B01">B01</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>';
+break;
+case 'B04':
+ echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="B04">B04</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>';
+break;
+case 'B11':
+echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="B11">B11</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>'; 
+break;
+case 'B13':
+echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="B13">B13</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>'; 
+break;
+case 'B14': 
+echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="B14">B14</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>              
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>';
+break;
+case 'E31': 
+echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="E31">E31</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>';
+break;
+case 'E33': 
+echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="E33">E33</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>              
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>';
+break;
+case 'E34': 
+echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="E34">E34</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>';
+break;
+case 'E41': 
+echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="E41">E41</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>';
+break;
+case 'E43': 
+echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="E43">E43</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>              
+              <option value="E44">E44</option>
+        
+        </select>';
+break;
+case 'E44': 
+echo '<select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="E44">E44</option>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              
+        
+        </select>';
+break; 
+}
+}else{
+echo ' <select class="form-control"  id="NCF606" name="NCF606" required>
+              <option value="B01">B01</option>
+              <option value="B03">B03</option>
+              <option value="B04">B04</option>
+              <option value="B11">B11</option>
+              <option value="B13">B13</option>
+              <option value="B14">B14</option>
+              <option value="E31">E31</option>
+              <option value="E33">E33</option>
+              <option value="E34">E34</option>
+              <option value="E41">E41</option>
+              <option value="E43">E43</option>
+              <option value="E44">E44</option>
+        
+        </select>';
+
+
+}
+
+?>          
+                     
+          </div>
+
+
+</div>
+<div class="col-xs-4" style="padding-left:0px">
+                   
+    <div class="input-group">
+      
+<?php 
+if(isset($_SESSION["error"])){ 
+      
+if(isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "B13"){
+
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" value='. $_SESSION['CodigoNCF606'].' required readonly>';
+
+}elseif (isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "B11"){
+
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" value='.$_SESSION['CodigoNCF606'].' required readonly>';
+
+}elseif(isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "E33"){
+
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" value='. $_SESSION['CodigoNCF606'].' required readonly>';
+
+}elseif (isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "E41"){
+
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" value='.$_SESSION['CodigoNCF606'].' required readonly>';
+
+}
+else {
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" value='.$_SESSION['CodigoNCF606'].' required>';
+
+ }
+
+}/*error*/
+else{
+  if(isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "B13"){
+
+  $RncEmpresaVentas = $_SESSION["RncEmpresaUsuario"];
+  $NCFFactura = $_SESSION["NCF606"];
+
+$respuesta = ControladorCorrelativos::ctrCorrelativosFac($RncEmpresaVentas, $NCFFactura);
+
+$codigo = $respuesta["NCF_Cons"];
+$codigoNCF = $codigo + 1;
+$length = 8;
+$string = substr(str_repeat(0, $length).$codigoNCF, - $length);
+
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" value='.$string.' required readonly>';
+
+}elseif (isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "B11"){
+
+  $RncEmpresaVentas = $_SESSION["RncEmpresaUsuario"];
+  $NCFFactura = $_SESSION["NCF606"];
+
+$respuesta = ControladorCorrelativos::ctrCorrelativosFac($RncEmpresaVentas, $NCFFactura);
+
+$codigo = $respuesta["NCF_Cons"];
+$codigoNCF = $codigo + 1;
+
+$length = 8;
+$string = substr(str_repeat(0, $length).$codigoNCF, - $length);
+
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" value='.$string.' required readonly>';
+
+}elseif(isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "E33"){
+
+  $RncEmpresaVentas = $_SESSION["RncEmpresaUsuario"];
+  $NCFFactura = $_SESSION["NCF606"];
+
+$respuesta = ControladorCorrelativos::ctrCorrelativosFac($RncEmpresaVentas, $NCFFactura);
+
+$codigo = $respuesta["NCF_Cons"];
+$codigoNCF = $codigo + 1;
+$length = 10;
+$string = substr(str_repeat(0, $length).$codigoNCF, - $length);
+
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" value='.$string.' required readonly>';
+
+}elseif (isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "E41"){
+
+  $RncEmpresaVentas = $_SESSION["RncEmpresaUsuario"];
+  $NCFFactura = $_SESSION["NCF606"];
+
+$respuesta = ControladorCorrelativos::ctrCorrelativosFac($RncEmpresaVentas, $NCFFactura);
+
+$codigo = $respuesta["NCF_Cons"];
+$codigoNCF = $codigo + 1;
+
+$length = 10;
+$string = substr(str_repeat(0, $length).$codigoNCF, - $length);
+
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" value='.$string.' required readonly>';
+
+}else {
+echo'<input type="text" maxlength="10" class="form-control input-NCF" id="CodigoNCF606" name="CodigoNCF606" required>';
+
+ }
+
+}
+?>
+       
+      
+    </div>
+   
+</div>
+
+<div class="form-group col-lg-5" style="padding-left:0px">
+       
+          <div class="input-group">
+
+        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+
+        <input type="text" class="form-control input-NCFMOD" maxlength="11" id="NCF_Modificado_606" name="NCF_Modificado_606" placeholder="NCF MODIFICADO" value="<?php if (isset($_SESSION['NCF_Modificado_606'])){ echo $_SESSION['NCF_Modificado_606']; } ?>">
+
+ </div>
+ </div>
+
+
+<div class="col-lg-12"></div>
+             
+
+  <div class="form-group col-lg-12">
+
+        <div class="input-group">
+
+          <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+
+                     <div class="input-group form-control TipoSuplidor">
+
+
+                      <?php 
+                      if(isset($_SESSION["Tipo_Suplidor_606"])){
+                        $Tipo_Suplidor_606 = $_SESSION["Tipo_Suplidor_606"];
+
+                        switch ($Tipo_Suplidor_606){
+                          
+                          case "1":
+                           echo '<input type="radio" Class="Juridico" name="Tipo_Suplidor_606" id="juridico_606" value="1" required checked> Jurídico
+                                  <input type="radio" Class="Fisico" name="Tipo_Suplidor_606" id="fisico_606" value="2" required> Fisico';
+                            
+                          break;
+                           case "2":
+                           echo '<input type="radio" Class="Juridico" name="Tipo_Suplidor_606" id="juridico_606" value="1" required> Jurídico
+                                  <input type="radio" Class="Fisico" name="Tipo_Suplidor_606" id="fisico_606" value="2" required checked> Fisico';
+                            
+                          break;
+
+
+                        }
+                         }else{
+
+                          echo '<input type="radio" Class="Juridico" name="Tipo_Suplidor_606" id="juridico_606" value="1" required> Jurídico
+                                  <input type="radio" Class="Fisico" name="Tipo_Suplidor_606" id="fisico_606" value="2" required> Fisico';
+                            
+                        }
+
+
+
+                       ?>
+                   
+                    </div>
+
+                  </div>
+
+                  </div>
+
+
+
+<div class="form-group col-lg-12">
+
+  <div class="input-group">
+
+  <span class="input-group-addon"><i class="glyphicon glyphicon-registration-mark"></i></span>
+
+  <?php 
+  if(isset($_SESSION["error"])){
+    echo '<input type="text" class="form-control input-RNC" maxlength="11" id="Rnc_Factura_606" name="Rnc_Factura_606" placeholder="Ingresar RNC o Cédula" value="'.$_SESSION['Rnc_Factura_606'].'" required>';
+
+  }else{
+    if(isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "B13"){
+    echo'<input type="text" class="form-control input-RNC" maxlength="11" id="Rnc_Factura_606" name="Rnc_Factura_606" placeholder="Ingresar RNC o Cédula" value="'.$_SESSION["RncEmpresaUsuario"].'" required>';
+
+
+   }else if(isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "E33"){
+    echo'<input type="text" class="form-control input-RNC" maxlength="11" id="Rnc_Factura_606" name="Rnc_Factura_606" placeholder="Ingresar RNC o Cédula" value="'.$_SESSION["RncEmpresaUsuario"].'" required>';
+
+   }else{
+    echo '<input type="text" class="form-control input-RNC" maxlength="11" id="Rnc_Factura_606" name="Rnc_Factura_606" placeholder="Ingresar RNC o Cédula" required>';
+    
+
+   }
+
+
+  }
+   
+
+
+
+   ?>
+
+  
+</div>
+</div>
+              
+
+<div class="form-group col-lg-12">
+
+ <div class="input-group form-control">
+
+    <span class="input-group-addon"><i class="fa fa-address-book-o"></i></span>
+
+<?php 
+  if(isset($_SESSION["error"])){
+    echo '<input class="form-control" type="text" id="Nombre_Empresa_606" name="Nombre_Empresa_606" value="'.$_SESSION['Nombre_Empresa_606'].'" readonly>';
+
+  }else{
+    if(isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "B13"){
+    echo '<input class="form-control" type="text" id="Nombre_Empresa_606" name="Nombre_Empresa_606" value="'.$_SESSION["NombreEmpresa"].'" readonly>';
+
+
+   }else if(isset($_SESSION["NCF606"]) && $_SESSION["NCF606"] == "E33"){
+    echo '<input class="form-control" type="text" id="Nombre_Empresa_606" name="Nombre_Empresa_606" value="'.$_SESSION["NombreEmpresa"].'" readonly>';
+
+   }else{
+   echo '<input class="form-control" type="text" id="Nombre_Empresa_606" name="Nombre_Empresa_606" readonly>';
+    
+
+   }
+
+  }
+   
+?>
+
+    
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAgregarSuplidor">Agregar Suplidor</button>
+
+  </div>
+
+</div>
+  <div class="col-xs-12">  
+    
+  <div class="input-group form-control">
+     <label class="col-xs-12" style="text-align: center;">Calculadora Total Factura - ITBIS</label>
+
+<div class="col-xs-3">
+            <label class="pull-right">Total Factura</label>
+
+        </div>
+
+    <div class="form-group col-xs-3">
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+
+                <input type="text" class="form-control" id="operador1" name="operador1" placeholder="0000" value="<?php if (isset($_SESSION["operador1"])){ echo $_SESSION["operador1"]; } ?>" required>
+
+             
+                        
+              </div>
+      </div>
+      <div class="col-xs-1" style="padding-right: 0px;">
+            <label>ITBIS</label>
+
+        </div>
+
+      <div class="form-group col-xs-3">
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-minus-square-o"></i></span>
+
+                <input type="text" class="form-control" id="operador2" name="operador2" placeholder="0000" value="<?php if (isset($_SESSION["operador2"])){ echo $_SESSION["operador2"]; } ?>" required>
+
+               
+                        
+              </div>
+
+      </div>
+ </div>
+ </div>
+<br>
+  
+  <div class="form-group">
+      
+      <div class="col-xs-6 right" style="padding-right:0px">
+        
+        <label>Compras</label>
+        <br>
+<input class="form-control" type="text"  min=0 step="any" id="Montototalbienes" name="Montototalbienes" value="<?php if (isset($_SESSION['Montototalbienes'])){ echo $_SESSION['Montototalbienes']; } ?>" required>
+
+      </div>
+                      
+      <div class="col-xs-6 left" style="padding-right:0px">
+
+                      
+        <label>Servicios</label>
+                        <br>
+<input class="form-control" type="text"  min=0 step="any" id="Montototalservicios" name="Montototalservicios" value="<?php if (isset($_SESSION['Montototalservicios'])){ echo $_SESSION['Montototalservicios']; } ?>" required>
+
+
+        </div>
+                      
+
+</div>
+
+<div class="form-group">
+
+                    
+<div class="col-xs-6 right" style="padding-right:0px">
+
+    <label> Monto ITBIS</label>
+                      
+      <br>
+
+<input class="form-control" type="text"  min=0 step="any" id="MontoITBIS" name="MontoITBIS" value="<?php if (isset($_SESSION['MontoITBIS'])){ echo $_SESSION['MontoITBIS']; } ?>" required>
+
+</div>
+                      
+                  
+<div class="col-xs-6" style="padding-right:0px">
+  <label>Propina Legal</label>
+  <br>
+
+<input class="form-control" type="text"  min=0 step="any" id="Propinalegal" name="Propinalegal" value="<?php if (isset($_SESSION['Propinalegal'])){ echo $_SESSION['Propinalegal']; } ?>" required>
+
+</div>
+                      
+</div>
+
+<div class="form-group">
+
+  <div class="form-group col-xs-6" style="padding-right:0px">
+
+    <label>Impuesto Selectivo</label>
+    
+    <br>
+<input class="form-control" type="text"  min=0 step="any" id="ImpuestoSelectivo" name="ImpuestoSelectivo" value="<?php if (isset($_SESSION['ImpuestoSelectivo'])){ echo $_SESSION['ImpuestoSelectivo']; } ?>" required>
+
+  
+  </div>
+                      
+<div class="form-group col-xs-6" style="padding-right:0px">
+
+    <label>Otros Impuestos</label>
+    
+    <br>
+
+<input class="form-control" type="text"  min=0 step="any" id="OtrosImpuestos" name="OtrosImpuestos" value="<?php if (isset($_SESSION['OtrosImpuestos'])){ echo $_SESSION['OtrosImpuestos']; } ?>" required>
+
+</div>
+                      
+
+</div>
+<div class="col-xs-12"> <br> </div>
+<div class="col-xs-6">
+            <label class="pull-right">Total Factura =</label>
+
+        </div>
+
+    <div class="form-group col-xs-6">
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+
+                <input type="text" class="form-control" id="TotalFacturavi" name="TotalFacturavi" placeholder="0000" value="" required readonly>
+
+               
+                        
+              </div>
+      </div>
+<br>
+
+<div class="col-xs-6">
+  
+  <div class="form-group">
+      
+    <label>
+
+<?php
+
+                   
+if(isset($_SESSION["ITBIS_LLEVADO_A_COSTO"])){
+  
+  echo '<input type="checkbox" class="ITBIS_LLEVADO_A_COSTO" id="ITBIS_LLEVADO_A_COSTO" name="ITBIS_LLEVADO_A_COSTO" value ="1" checked>ITBIS LLEVADO A COSTO';
+
+}else{
+  
+  echo '<input type="checkbox" class="ITBIS_LLEVADO_A_COSTO" id="ITBIS_LLEVADO_A_COSTO" name="ITBIS_LLEVADO_A_COSTO" value ="1">ITBIS LLEVADO A COSTO';
+
+} 
+?>
+    </label>
+  </div>
+</div>
+
+<div class="col-xs-6">
+    
+    <div class="form-group">
+                  <label>
+                    <?php 
+                    if(isset($_SESSION["ITBIS_Sujeto_a_Propocionalidad"])){
+                      echo '<input type="checkbox" class="ITBIS_Sujeto_a_Propocionalidad" id="ITBIS_Sujeto_a_Propocionalidad" name="ITBIS_Sujeto_a_Propocionalidad" value ="1" checked>ITBIS Sujeto a Propocionalidad';
+
+
+                    } else{
+
+                      echo '<input type="checkbox" class="ITBIS_Sujeto_a_Propocionalidad" id="ITBIS_Sujeto_a_Propocionalidad" name="ITBIS_Sujeto_a_Propocionalidad" value ="1">ITBIS Sujeto a Propocionalidad';
+
+
+
+                    }
+
+
+                     ?>
+
+
+
+                    
+                    
+                  </label>
+
+                </div>
+                
+              </div>
+
+              <div class="col-xs-6 left">
+
+              <div class="form-group">
+
+                    <div class="input-group form-control">
+
+                      <label>TIPO DE GASTO</label><br>
+
+                      <?php 
+                      if(isset($_SESSION["Tipo_Gasto_606"])){
+                         $Tipo_Gasto_606 = $_SESSION["Tipo_Gasto_606"];
+
+                         switch ($Tipo_Gasto_606) {
+                          case '01':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required checked>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '02':
+                          echo ' <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required checked>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '03':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required checked>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '04':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required checked>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '05':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required checked>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '06':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required checked>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '07':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required checked>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '08':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required checked>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '09':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required checked>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '10':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required checked>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                          case '11':
+                          echo '<input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required checked>11-GASTOS DE SEGUROS';
+                             
+
+
+                          break;
+                           
+                           
+                         }
+
+
+
+                      }else{
+                         echo ' <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_PERSONAL" value="01" required>01-GASTOS DE PERSONAL
+                        <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTO_POR_TRABAJO" value="02" required>02-GASTO POR TRABAJO SUMINISTRO Y SERVICIO <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ARRENDAMIENTOS" value="03" required>03-ARRENDAMIENTOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_ACTIVOS" value="04" required>04-GASTOS DE ACTIVOS FIJO<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_DE_REPRESENTACIÓN" value="05" required>05-GASTOS DE REPRESENTACIÓN<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="OTRAS_DEDUCCIONES_ADMITIDAS" value="06" required>06-OTRAS DEDUCCIONES ADMITIDAS<br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS_FINANCIEROS" value="07" required>07-GASTOS FINANCIEROS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS EXTRAORDINARIOS" value="08" required>08-GASTOS EXTRAORDINARIOS <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="COMPRA FORMARA PARTE COSTO DE VENTA" value="09" required>09-COMPRA FORMARA PARTE COSTO DE VENTA <br>
+                        <input type="radio" name="Tipo_Gasto_606" id="ADQUISICIONES DE ACTIVOS" value="10" required>10-ADQUISICIONES DE ACTIVOS<br>              
+                    
+                        <input type="radio" name="Tipo_Gasto_606" id="GASTOS DE SEGUROS" value="11" required>11-GASTOS DE SEGUROS';
+                             
+                      }
+
+
+
+
+
+
+                       ?>
+
+                   
+                    </div>
+
+                  
+
+                  </div>
+                  </div>
+                  
+                  <div class="col-xs-6 right">
+
+              <div class="form-group">
+
+                    <div class="input-group form-control Formapago">
+
+                      <label>FORMA DE PAGO</label><br>
+
+                      <?php 
+                      if(isset($_SESSION["Forma_De_Pago_606"])){
+
+                        $Forma_De_Pago_606 = $_SESSION["Forma_De_Pago_606"];
+                        switch ($Forma_De_Pago_606) {
+                            case '01':
+                            echo '<input type="radio" name="Forma_De_Pago_606" id="EFECTIVO" value="01" required checked>01-EFECTIVO
+                        <br>
+                        <input type="radio" name="Forma_De_Pago_606" id="CHEQUES_TRANSFERENCIAS_DEPOSITO" value="02" required>02-CHEQUES/TRANSFERENCIAS/DEPOSITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="TARJETA_CREDITO_DEBITO" value="03" required>03-TARJETA CREDITO/DEBITO<br>
+                        <input type="radio" class="Dias_Credito" name="Forma_De_Pago_606" id="COMPRA_A_CREDITO" value="04" required>04-COMPRA A CREDITO<br>
+                       
+                        <div id="div1" style="display:;">
+                          
+                          
+                        </div>
+                        <input type="radio" name="Forma_De_Pago_606" id="PERMUTA" value="05" required>05-PERMUTA<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="NOTA_DE_CREDITO" value="06" required>06-NOTA DE CREDITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="MIXTO" value="07" required>07-MIXTO <br>';
+
+                            break;
+                            case '02':
+                            echo '<input type="radio" name="Forma_De_Pago_606" id="EFECTIVO" value="01" required>01-EFECTIVO
+                        <br>
+                        <input type="radio" name="Forma_De_Pago_606" id="CHEQUES_TRANSFERENCIAS_DEPOSITO" value="02" required checked>02-CHEQUES/TRANSFERENCIAS/DEPOSITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="TARJETA_CREDITO_DEBITO" value="03" required>03-TARJETA CREDITO/DEBITO<br>
+                        <input type="radio" class="Dias_Credito" name="Forma_De_Pago_606" id="COMPRA_A_CREDITO" value="04" required>04-COMPRA A CREDITO<br>
+                       
+                        <div id="div1" style="display:;">
+                          
+                          
+                        </div>
+                        <input type="radio" name="Forma_De_Pago_606" id="PERMUTA" value="05" required>05-PERMUTA<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="NOTA_DE_CREDITO" value="06" required>06-NOTA DE CREDITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="MIXTO" value="07" required>07-MIXTO <br>';
+                            break;
+                            case '03':
+                            echo '<input type="radio" name="Forma_De_Pago_606" id="EFECTIVO" value="01" required>01-EFECTIVO
+                        <br>
+                        <input type="radio" name="Forma_De_Pago_606" id="CHEQUES_TRANSFERENCIAS_DEPOSITO" value="02" required>02-CHEQUES/TRANSFERENCIAS/DEPOSITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="TARJETA_CREDITO_DEBITO" value="03" required checked>03-TARJETA CREDITO/DEBITO<br>
+                        <input type="radio" class="Dias_Credito" name="Forma_De_Pago_606" id="COMPRA_A_CREDITO" value="04" required>04-COMPRA A CREDITO<br>
+                       
+                        <div id="div1" style="display:;">
+                          
+                          
+                        </div>
+                        <input type="radio" name="Forma_De_Pago_606" id="PERMUTA" value="05" required>05-PERMUTA<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="NOTA_DE_CREDITO" value="06" required>06-NOTA DE CREDITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="MIXTO" value="07" required>07-MIXTO <br>';
+                            break;
+                            case '04':
+                            echo '<input type="radio" name="Forma_De_Pago_606" id="EFECTIVO" value="01" required>01-EFECTIVO
+                        <br>
+                        <input type="radio" name="Forma_De_Pago_606" id="CHEQUES_TRANSFERENCIAS_DEPOSITO" value="02" required>02-CHEQUES/TRANSFERENCIAS/DEPOSITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="TARJETA_CREDITO_DEBITO" value="03" required>03-TARJETA CREDITO/DEBITO<br>
+                        <input type="radio" class="Dias_Credito" name="Forma_De_Pago_606" id="COMPRA_A_CREDITO" value="04" required checked>04-COMPRA A CREDITO<br>
+                       
+                        <div id="div1" style="display:;">
+                        <div input-group form-control class="col-xs-12 right">
+                          <input type="radio" name="diaCredito" id="dias15" value="15" required checked>15
+                          <input type="radio" name="diaCredito" id="dias30" value="30" required>30
+                          <input type="radio" name="diaCredito" id="dias45" value="45" required>45
+                          <input type="radio" name="diaCredito" id="dias90" value="90" required>90</div>
+                          
+                          
+                        </div>
+                        <input type="radio" name="Forma_De_Pago_606" id="PERMUTA" value="05" required>05-PERMUTA<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="NOTA_DE_CREDITO" value="06" required>06-NOTA DE CREDITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="MIXTO" value="07" required>07-MIXTO <br>';
+                            break;
+                            case '05':
+                            echo '<input type="radio" name="Forma_De_Pago_606" id="EFECTIVO" value="01" required>01-EFECTIVO
+                        <br>
+                        <input type="radio" name="Forma_De_Pago_606" id="CHEQUES_TRANSFERENCIAS_DEPOSITO" value="02" required>02-CHEQUES/TRANSFERENCIAS/DEPOSITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="TARJETA_CREDITO_DEBITO" value="03" required>03-TARJETA CREDITO/DEBITO<br>
+                        <input type="radio" class="Dias_Credito" name="Forma_De_Pago_606" id="COMPRA_A_CREDITO" value="04" required>04-COMPRA A CREDITO<br>
+                       
+                        <div id="div1" style="display:;">
+                          
+                          
+                        </div>
+                        <input type="radio" name="Forma_De_Pago_606" id="PERMUTA" value="05" required checked>05-PERMUTA<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="NOTA_DE_CREDITO" value="06" required>06-NOTA DE CREDITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="MIXTO" value="07" required>07-MIXTO <br>';
+                            break;
+                            case '06':
+                            echo '<input type="radio" name="Forma_De_Pago_606" id="EFECTIVO" value="01" required>01-EFECTIVO
+                        <br>
+                        <input type="radio" name="Forma_De_Pago_606" id="CHEQUES_TRANSFERENCIAS_DEPOSITO" value="02" required>02-CHEQUES/TRANSFERENCIAS/DEPOSITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="TARJETA_CREDITO_DEBITO" value="03" required>03-TARJETA CREDITO/DEBITO<br>
+                        <input type="radio" class="Dias_Credito" name="Forma_De_Pago_606" id="COMPRA_A_CREDITO" value="04" required>04-COMPRA A CREDITO<br>
+                       
+                        <div id="div1" style="display:;">
+                          
+                          
+                        </div>
+                        <input type="radio" name="Forma_De_Pago_606" id="PERMUTA" value="05" required>05-PERMUTA<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="NOTA_DE_CREDITO" value="06" required checked>06-NOTA DE CREDITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="MIXTO" value="07" required>07-MIXTO <br>';
+                            break;
+                            case '07':
+                            echo '<input type="radio" name="Forma_De_Pago_606" id="EFECTIVO" value="01" required>01-EFECTIVO
+                        <br>
+                        <input type="radio" name="Forma_De_Pago_606" id="CHEQUES_TRANSFERENCIAS_DEPOSITO" value="02" required>02-CHEQUES/TRANSFERENCIAS/DEPOSITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="TARJETA_CREDITO_DEBITO" value="03" required>03-TARJETA CREDITO/DEBITO<br>
+                        <input type="radio" class="Dias_Credito" name="Forma_De_Pago_606" id="COMPRA_A_CREDITO" value="04" required>04-COMPRA A CREDITO<br>
+                       
+                        <div id="div1" style="display:;">
+                          
+                          
+                        </div>
+                        <input type="radio" name="Forma_De_Pago_606" id="PERMUTA" value="05" required>05-PERMUTA<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="NOTA_DE_CREDITO" value="06" required>06-NOTA DE CREDITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="MIXTO" value="07" required checked>07-MIXTO <br>';
+                            break;
+                         
+                        }
+
+
+
+
+                      }else{
+                        echo '<input type="radio" name="Forma_De_Pago_606" id="EFECTIVO" value="01" required>01-EFECTIVO
+                        <br>
+                        <input type="radio" name="Forma_De_Pago_606" id="CHEQUES_TRANSFERENCIAS_DEPOSITO" value="02" required>02-CHEQUES/TRANSFERENCIAS/DEPOSITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="TARJETA_CREDITO_DEBITO" value="03" required>03-TARJETA CREDITO/DEBITO<br>
+                        <input type="radio" class="Dias_Credito" name="Forma_De_Pago_606" id="COMPRA_A_CREDITO" value="04" required>04-COMPRA A CREDITO<br>
+                       
+                        <div id="div1" style="display:;">
+                          
+                          
+                        </div>
+                        <input type="radio" name="Forma_De_Pago_606" id="PERMUTA" value="05" required>05-PERMUTA<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="NOTA_DE_CREDITO" value="06" required>06-NOTA DE CREDITO<br>
+                        <input type="radio" name="Forma_De_Pago_606" id="MIXTO" value="07" required>07-MIXTO <br>';
+
+                      }
+
+
+
+
+                       ?>
+
+                     
+
+                   
+                        
+                    </div>
+
+                  
+
+                  </div>
+                  </div>
+
+                  <br>
+                  <br>
+
+                   <div class="col-xs-6 right">
+
+                      <div class="form-group">
+
+                        <div class="input-group form-control Formapago">
+
+                          <label>TRANSACCIÓN</label><br>
+                          <?php 
+
+                          if(isset($_SESSION["Transaccion_606"])){
+
+                          $Transaccion_606 = $_SESSION["Transaccion_606"];
+                              switch ($Transaccion_606){ 
+                                  case '1':
+                                  echo '<input type="radio" name="Transaccion_606" id="Transaccion_606" id="Personal" value="1" checked>Personal
+                                      <input type="radio" name="Transaccion_606" id="Transaccion_606" id="Empresarial" value="2">Empresarial
+                                       <br> ';
+
+                                  break;
+                                  case '2':
+                                  echo '<input type="radio" name="Transaccion_606" id="Transaccion_606" id="Personal" value="1">Personal
+                                      <input type="radio" name="Transaccion_606" id="Transaccion_606" id="Empresarial" value="2" checked>Empresarial
+                                       <br> ';
+
+                                  break;
+
+
+                                  }
+
+                                  } else {
+                                    echo '
+                            <input type="radio" name="Transaccion_606" id="Transaccion_606" id="Personal" value="1">Personal
+                            
+                            <input type="radio" name="Transaccion_606" id="Transaccion_606" id="Empresarial" value="2" checked>Empresarial
+                             <br> 
+                            ';
+
+
+
+
+                                  }
+
+
+
+
+                           ?>
+                       
+                            <label>Fecha de Pago</label><br>
+
+                            <input type="text" class="col-xs-6 Fecha_Trans_AnoMes" maxlength="6" id="FechaPagomes606" name="FechaPagomes606" placeholder="Año/Mes" value="<?php if (isset($_SESSION['FechaPagomes606'])){ echo $_SESSION['FechaPagomes606']; } ?>">
+
+                            <input type="text" class="col-xs-6 Fecha_Trans_Dia" id="FechaPagodia606" name="FechaPagodia606" placeholder="Día" value="<?php if (isset($_SESSION['FechaPagodia606'])){ echo $_SESSION['FechaPagodia606']; } ?>"><br>
+
+                            <label>Referencia</label><br>
+                            <input type="text" class="col-xs-12"  id="Referencia" name="Referencia" placeholder="Referencia del Pago"  value="<?php if (isset($_SESSION['Referencia'])){ echo $_SESSION['Referencia']; } ?>">
+                            <br>
+                            <select type="text" class="form-control" id="agregarBanco" name="agregarBanco">
+                              <option value="">Seleccionar Banco</option>
+                               <option value="1">Banco</option>
+
+                                <?php 
+
+                                 //$Rnc_Empresa_Cliente = $_SESSION["RncEmpresaUsuario"];
+
+                                //$clientes = ControladorClientes::ctrMostrarClientes($Rnc_Empresa_Cliente);
+
+                                 //foreach ($clientes as $key => $value){
+
+                                  //echo '<option value="'.$value["id"].'">'.$value["Nombre_Cliente"].'</option>';
+
+
+
+                                 //}
+
+
+
+
+                                  ?>
+                            </select>
+
+
+
+                            
+                          </div>
+                            
+                      </div>
+                            
+                    </div>
+                    <div class = "col-xs-12"></div>
+
+<div class="form-group col-xs-12">
+
+      <div class="input-group">
+
+      <span class="input-group"><h4>¿Desea Realizar una Retención a esta Factura?</h4></span>
+
+
+      
+          <div class="input-group form-control Retencion">
+      <input type="radio" class="opcionretencion" name="Retencion" id="si" value="1" required> SI
+
+      <input type="radio" class="opcionretencion" name="Retencion" id= "no" value="2" required checked> NO
+      
+          </div>
+          
+     </div>
+
+  </div>
+
+  <div class="FormularioRetencion">
+    
+
+
+
+  </div>
+                
+     
+
+                     <div class="col-xs-12 left">
+                      <div class="form-group">
+
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-audio-description"></i></span>
+
+                      
+                     
+                      <input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Descripcion" value="<?php if (isset($_SESSION['Descripcion'])){ echo $_SESSION['Descripcion']; } ?>">
+
+                     </div>
+                     
+
+                    </div>
+                   
+
+                  </div>
+                  
+
+            <div class="box-footer">
+  <button type="submit" class="btn btn-primary pull-right">Registrar</button>
+
+                     
+                <?php 
+
+                    if(isset($_SESSION['FechaFacturadia_606'])){
+
+                          unset($_SESSION["FechaFacturadia_606"]); 
+                          unset($_SESSION["Rnc_Factura_606"]); 
+                          unset($_SESSION["NCF606"]);
+                          unset($_SESSION["CodigoNCF606"]);
+                          unset($_SESSION["NCF_Modificado_606"]); 
+                          unset($_SESSION["Montototalbienes"]); 
+                          unset($_SESSION["Montototalservicios"]);
+                          unset($_SESSION["MontoITBIS"]); 
+                          unset($_SESSION["Propinalegal"]); 
+                          unset($_SESSION["ImpuestoSelectivo"]); 
+                          unset($_SESSION["OtrosImpuestos"]);
+                          unset($_SESSION["ITBIS_LLEVADO_A_COSTO"]);
+                          unset($_SESSION["ITBIS_Sujeto_a_Propocionalidad"]);
+                          unset($_SESSION["Nombre_Empresa_606"]);
+                          unset($_SESSION["FechaPagomes606"]);
+                          unset($_SESSION["FechaPagodia606"]);
+                          unset($_SESSION["Referencia"]); 
+                          unset($_SESSION["Descripcion"]);
+                          unset($_SESSION["operador1"]); 
+                          unset($_SESSION["operador2"]); 
+
+                      }
+                ?>   
+
+           </div>
+
+          
+          </div>
+          <?php 
+
+          $crearRegistro606 = new Controlador606();
+          $crearRegistro606 -> ctrRegistrar606();
+
+
+
+           ?>
+
+          
+          </form>
+          
+       
+        </div>
+
+          
+      </div>
+    
+    </div>
+
+         <!--=================================================
+            LA TABLA  DE PRODUCTO
+        =======================================================-->
+
+        <div class="col-lg-6 hidden-md hidden-sm hidden-xs">
+
+          <div class="box box-warning"></div>
+
+          <div class="box-header with-border">
+
+            <div class="box-body">
+
+              <table class="table table-bordered table-striped dt-responsive tablas">
+                
+                <thead>
+
+                  <tr>
+
+                    <th style="width: 5px">#</th>
+                    <th>SUPLIDOR</th>
+                    <th>RNC</th>
+                    <th>NCF</th>
+                    <th style="width: 10px">Año/Mes</th>
+                    <th style="width: 5px">Dia</th>
+                    <th>Total</th>
+                    <th>ITBIS</th>
+                    <th>Forma de Pago</th>
+                     <th>Accion</th>
+                    
+
+                      
+
+                  </tr>
+
+                </thead>
+
+                <tbody>
+
+                   <?php 
+                    $Orden = "id";
+
+              if(isset($_GET["periodoreporte606"])){
+               $periodoreporte606 = $_GET["periodoreporte606"];
+              }else{
+               $periodoreporte606 = $_SESSION["Anologin"];
+
+               }
+              $Rnc_Empresa_606 = $_SESSION["RncEmpresaUsuario"];
+
+              $reporte606 = Controlador606::ctrMostrarReporte606($Rnc_Empresa_606, $Orden, $periodoreporte606);
+
+               foreach ($reporte606 as $key => $value){
+                echo '<tr>
+      <td>'.($key+1).'</td>
+      <td>'.$value["Nombre_Empresa_606"].'</td>
+      <td>'.$value["Rnc_Factura_606"].'</td>
+      <td>'.$value["NCF_606"].'</td>
+      <td>'.$value["Fecha_AnoMes_606"].'</td>
+      <td>'.$value["Fecha_Dia_606"].'</td>
+      <td>'.number_format($value["Total_Monto_Factura_606"], 2).'</td>
+      <td>'.number_format($value["ITBIS_Factura_606"], 2).'</td>
+      <td>'.$value["Forma_Pago_606"].'</td>
+                           
+      <td><div class="btn-group">';
+
+if($value["Modulo"] == "REGISTRO606" || $value["Modulo"] == "DIARIO"){
+  echo'<button class="btn btn-warning btn-xs btnRetener606" id_606="'.$value["id"].'" Rnc_Empresa_606="'.$_SESSION["RncEmpresaUsuario"].'"data-toggle="modal" data-target="#modalRetener606" ><i class="fa fa-university"></i></button>';
+}
+if($value["Modulo"] == "REGISTRO606"){
+  echo'<button class="btn btn-warning btn-xs btnEditar606" id_606="'.$value["id"].'" modulo = "registro-606"><i class="fa fa-pencil"></i></button>'; 
+  
+  echo'<button class="btn btn-primary btn-xs btnCopiar606" id_606="'.$value["id"].'" modulo = "reporte-606"><i class="fa fa-copy"></i></button>'; 
+                                 
+}
+                                
+echo'</div></td>             
+
+    </tr>';
+
+
+
+               }
+               ?>
+
+  
+
+                </tbody>
+
+
+              </table>
+              
+
+            </div>
+            
+
+          </div>  
+
+
+        </div>     
+
+      </div>
+
+      
+    </section>
+
+
+   </div>
+    <!--************************************************
+                MODAL AGREGAR SUPLIDORES
+  ******************************************************* -->
+  <!-- Modal -->
+<div id="modalAgregarSuplidor" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    
+    <div class="modal-content">
+
+      <!--OJO OJO OJO OJO LA ETIQUETA FORM ES LA QUE ENVIA LOS INPUT DEBE ENCERRAR todo EL FORMULARIO
+        EL ATRIBUTO enctype="multipart/form-data" ES POR QUE EN ESTE FORMULARIO SE ENVIA UN ARCHIVO QUE ES LA FOTO *-->
+      <form role="form" method="post">
+      
+      <div class="modal-header" style="background: #3c8dbc; color:white">
+        
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+        <h4 class="modal-title">Agregar Suplidor</h4>
+      
+      </div>
+      
+
+      <div class="modal-body">
+
+        <div class="box-body">
+
+          <!--*****************input de RNC de la CATEGORIA********************** -->
+
+          <div class="form-group">
+
+            <div class="input-group">
+              <input type="hidden" class="form-control input-lg" id="RncEmpresasuplidor" name="RncEmpresasuplidor" value="<?php echo $_SESSION["RncEmpresaUsuario"];?>" readonly>
+              <input type="hidden" class="form-control input-lg" id="Usuariologueado" name="Usuariologueado" value="<?php echo $_SESSION["Usuario"];?>" readonly>
+        <input type="hidden" class="form-control input-lg" id="ModuloSuplidor" name="ModuloSuplidor" value="registro-606" readonly>
+
+            </div>
+
+
+          </div>
+          <!--*****************cierra input RNC de la CATEGORIA************************** -->
+          <!--*****************input de cedula o pasaporte********************** -->
+
+          <div class="form-group">
+
+            <div class="input-group">
+              
+                    <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+
+                     <div class="input-group form-control TipoSuplidor">
+
+                   
+                        <input type="radio" Class="Juridico" name="Tipo_Suplidor" id="juridico" value="1" required> Jurídico
+
+                    
+                    
+                        <input type="radio" Class="Fisico" name="Tipo_Suplidor" id="fisico" value="2" required> Fisico
+
+                   
+                    </div>
+                    
+            </div>
+
+          </div>
+
+           <!--*****************input de cedula o pasaporte********************** -->
+
+          <div class="form-group">
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-registration-mark"></i></span>
+              <input type="text" class="form-control input-RNC" maxlength="11" id="nuevoDocumentoIdsuplidor" name="nuevoDocumentoIdsuplidor" placeholder="Ingresar RNC o Cedula del Suplicor" required>
+
+            </div>
+
+          </div>
+          <!--*****************cierra input de Ncedula o pasaporte************************* -->
+            
+
+         <!--*****************input de Nombre de CATEGORIA********************** -->
+
+          <div class="form-group">
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" class="form-control input-lg" id="nuevoSuplidor" name="nuevoSuplidor" placeholder="Ingresar Nombre Completo del Suplidors" required>
+
+            </div>
+
+          </div>
+          <!--*****************cierra input de Nombre de Usuario************************* -->
+
+           <!--*****************input de EMAIL********************** -->
+
+          <div class="form-group">
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+              <input type="email" class="form-control input-lg" name="nuevoEmailSuplidor" placeholder="Ingresar email">
+
+            </div>
+
+          </div>
+          <!--*****************cierra input de EMAIL************************* -->
+            <!--*****************input de Telefocno********************** -->
+
+          <div class="form-group">
+
+            <div class="input-group">
+
+              <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+              
+             
+              <input type="text" class="form-control input-lg" name="nuevoTelefonoSuplidor" placeholder="Ingresar Teléfono">
+
+
+            </div>
+
+          </div>
+          <!--*****************cierra input de EMAIL************************* -->
+            <!--*****************input de Direccion********************* -->
+
+          <div class="form-group">
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+              <input type="text" class="form-control input-lg" name="nuevaDireccionSuplidor" placeholder="Ingresar Dirección Suplidor">
+
+            </div>
+
+          </div>
+          <!--*****************cierra input de Direccion************************* -->
+          
+        </div>
+ 
+      </div>
+      
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+        <button type="submit" class="btn btn-primary">Guardar Suplidor</button>
+
+      </div>
+
+     <?php 
+
+        $crearSuplidor = new ControladorSuplidores();
+        $crearSuplidor -> ctrCrearSuplidor();
+
+       ?>
+     
+    </form>
+    <!-- CIERRO EL FORMULARIO *-->
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<!--************************************************
+                    CIERRE DE  MODAL AGREGAR USUARIO
+  ******************************************************* -->
+  <!--******************************************************
+
+                  MODAL RETENER 606
+  ******************************************************* -->
+  <!-- Modal -->
+<div id="modalRetener606" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    
+    <div class="modal-content">
+
+      <!--OJO OJO OJO OJO LA ETIQUETA FORM ES LA QUE ENVIA LOS INPUT DEBE ENCERRAR todo EL FORMULARIO
+        EL ATRIBUTO enctype="multipart/form-data" ES POR QUE EN ESTE FORMULARIO SE ENVIA UN ARCHIVO QUE ES LA FOTO *-->
+      <form role="form" method="post">
+      
+      <div class="modal-header" style="background: #3c8dbc; color:white">
+        
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+        <h4 class="modal-title">Retener 606</h4>
+      
+      </div>
+      
+
+      <div class="modal-body">
+
+        <div class="box-body">
+
+          <!--*****************input de RNC de la CATEGORIA********************** -->
+
+          <div class="form-group">
+
+            <div class="input-group">
+              <input type="hidden" class="form-control input-lg" id="RncEmpresaRetener" name="RncEmpresaRetener" value="<?php echo $_SESSION["RncEmpresaUsuario"];?>" readonly>
+              <input type="hidden" class="form-control input-lg" id="Usuariologueado" name="Usuariologueado" value="<?php echo $_SESSION["Usuario"];?>" readonly>
+
+
+            </div>
+
+
+          </div>
+          <div class="form-group">
+
+                   
+                  <div class="input-group">
+
+                   
+
+                    <input type="hidden" class="form-control" maxlength="11" id="id_606_Retener" name="id_606_Retener"required readonly>
+
+                  </div>
+
+                </div>
+          <!--*****************cierra input RNC de la CATEGORIA************************** -->
+          
+          <div class="form-group">
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-registration-mark"></i></span>
+              <input type="text"   class="form-control input-RNC" maxlength="11" id="Rnc_Retener" name="Rnc_Retener" value = "" required readonly>
+
+            </div>
+
+          </div>
+          <!--*****************cierra input de Ncedula o pasaporte************************* -->
+            
+
+           <div class="form-group">
+
+                   
+                  <div class="input-group">
+
+                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+
+                    <input type="text" class="form-control input-NCF" maxlength="11" id="NCF_606_Retener" name="NCF_606_Retener" required readonly>
+
+                  </div>
+
+                </div>
+
+                 <div class="form-group">
+
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+                       <div class="input-group form-control Fecha">
+
+                     <label>Año/Mes</label>
+                      <input type="text" class="Fechames" maxlength="6" id="FechaFacturames_606_Retener" name="FechaFacturames_606" required readonly>
+
+                     
+                      <label>Dìa</label><input type="text" class="Fechadia" maxlength="2" id="FechaFacturadia_606_Retener" name="FechaFacturadia_606_Retener" required readonly>
+
+
+                    </div>
+                   
+
+                  </div>
+                  </div>
+
+                   <div class="form-group">
+
+                    
+                    <div class="col-xs-6 right" style="padding-right:0px">
+
+                      
+                        <label>MONTO FACTURADO SIN ITBIS</label>
+                        <br>
+
+                        <input type="number"  min=0 step="any" id="MontoFacturadoRetener" name="MontoFacturadoRetener" required readonly>
+
+
+                      </div>
+                      
+                  
+
+                     <div class="col-xs-6 left" style="padding-right:0px">
+
+                      
+                        <label>MONTO ITBIS</label>
+                        <br>
+
+                        <input type="number"  min=0 step="any" id="MontoITBIS_Retener" name="MontoITBIS_Retener" required readonly>
+
+
+                      </div>
+                      
+
+                    </div>
+
+                    <label> Fecha de Retencion</label>
+                    <br>
+
+
+
+
+                    <div class="form-group">
+
+
+                    <div class="input-group col-xs-12">
+                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+                       <div class="input-group form-control FechaRetencion">
+
+                     <label>Año/Mes</label>
+                      <input type="text" class="Fechames" maxlength="6" id="FechaRetenecionmes_606" name="FechaRetenecionmes_606" required>
+
+                     
+                      <label>Dìa</label><input type="text" class="Fechadia" maxlength="2" id="FechaReteneciondia_606" name="FechaReteneciondia_606" required>
+
+
+                    </div>
+                   
+
+                  </div>
+                  </div>
+
+                  <div class="col-xs-6 left">
+
+              <div class="form-group">
+
+                    <div class="input-group form-control">
+
+                      <label>% ITBIS RETENIDO</label><br>
+
+                     
+
+                   
+                        <input type="radio" name="ITBIS_Retenido" id="ITBIS30" value="30" required>30 %
+                        <br>
+                        <input type="radio" name="ITBIS_Retenido" id="ITBIS75" value="75" required>75 %<br>
+                        <input type="radio" name="ITBIS_Retenido" id="ITBIS100" value="100" required>100 %<br>
+                        <input type="text" name="Monto_ITBIS_Retenido" id="Monto_ITBIS_Retenido" required>
+                        
+                    </div>
+
+                  
+
+                  </div>
+                  </div>
+
+                  <div class="col-xs-6  right">
+
+              <div class="form-group">
+
+                    <div class="input-group form-control">
+
+                      <label>% ISR RETENIDO</label><br>
+
+                     
+
+                   
+                        <input type="radio" name="ISR_RETENIDO" id="ISR2" value="2">2 %
+                        <br>
+                        <input type="radio" name="ISR_RETENIDO" id="ISR2" value="10">10 %<br>
+                        
+                        <input type="text" name="Monto_ISR_Retenido" id="Monto_ISR_Retenido" required>
+                        <br>
+                          <select type="text" class="form-control" id="tipo_de_seleccionretener" name="tipo_de_seleccionretener">
+                              <option value="0">TIPO DE SELECCION</option>
+                              <option value="01">01 - ALQUILERES</option>
+                              <option value="02">02 - HONORARIOS POR SERVICIOS</option>
+                              <option value="03">03 - OTRAS RENTAS</option>
+                              <option value="04">04 - OTRAS RENTAS (Rentas Presuntas)</option>
+                              <option value="05">05 - INTERESES PAGADOS A PERSONAS JURIDICAS RESIDENTES</option>
+                              <option value="06">06 - INTERESES PAGADOS A PERSONAS FISICAS RESIDENTES</option>
+                              <option value="07">07 - RETENCION POR PROVEEDORES DEL ESTADO</option>
+                              <option value="08">08 - JUEGOS TELEFONICOS</option>
+
+
+                         </select>
+
+
+                        
+                    </div>
+
+                  
+
+                  </div>
+                  </div>
+              
+            <!--*****************input de Direccion********************* -->
+
+         
+          <!--*****************cierra input de Direccion************************* -->
+          
+        </div>
+ 
+      </div>
+      
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+        <button type="submit" class="btn btn-primary">Retener</button>
+
+      </div>
+
+     <?php 
+
+        $crearRetencion606 = new Controlador606();
+        $crearRetencion606 -> ctrAgregarretencion606();
+
+       ?>
+     
+    </form>
+    <!-- CIERRO EL FORMULARIO *-->
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<!--************************************************
+                    CIERRE DE  MODAL AGREGAR SUPLIDOR
+  ******************************************************* -->
+  <!--************************************************
+                      MODAL AGREGAR Categoria
+  ******************************************************* -->
+  <!-- Modal -->
+<div id="modalDescarga606" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    
+    <div class="modal-content">
+
+      <!--OJO OJO OJO OJO LA ETIQUETA FORM ES LA QUE ENVIA LOS INPUT DEBE ENCERRAR todo EL FORMULARIO
+        EL ATRIBUTO enctype="multipart/form-data" ES POR QUE EN ESTE FORMULARIO SE ENVIA UN ARCHIVO QUE ES LA FOTO *-->
+      <form role="form" method="post">
+      
+      <div class="modal-header" style="background: #3c8dbc; color:white">
+        
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+        <h4 class="modal-title">DESCARGA TXT </h4>
+      
+      </div>
+      
+
+      <div class="modal-body">
+
+        <div class="box-body">
+
+          <!--*****************input de RNC de la CATEGORIA********************** -->
+
+          <div class="form-group">
+
+            <div class="input-group">
+              
+              <input type="text" class="form-control input-lg" id="RncEmpresa606Rango" name="RncEmpresa606Rango" value="<?php echo $_SESSION["RncEmpresaUsuario"];?>" readonly>
+              
+            </div>
+
+
+          </div>
+          <!--*****************cierra input RNC de la CATEGORIA************************** -->
+            
+
+         <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+                      <select type="text" class="form-control" id="Periodoreporte606" name="Periodoreporte606" required>
+                        <option value="">Seleccionar Periodo</option>
+
+                        <?php  
+                         
+
+                        $Rnc_Empresa_606 = $_SESSION["RncEmpresaUsuario"];
+
+                         $Periodo606 = Controlador606::ctrMostrarPeriodo606($Rnc_Empresa_606);
+
+                       
+                         foreach ($Periodo606 as $key => $value){
+
+                          echo '<option value="'.$value["Fecha_AnoMes_606"].'">'.$value["Fecha_AnoMes_606"].'</option>';
+
+
+
+                         }
+                    
+
+                         ?>
+
+                      </select>   
+
+                    </div>
+                   
+
+                  </div>
+
+          
+                     
+          
+        </div>
+
+      
+        
+      </div>
+      
+      <div class="modal-footer">
+       
+
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+        
+       
+        
+       <a  class="btn btn-primary pull-right" role="button" id="descargartxt606">Descargar TXT 606</a>
+       <a class="btn btn-warning pull-left" role="button" id="numeraciontxt606">Numeracion TXT 606</a>
+
+
+        
+       
+      </div>
+
+
+
+      
+    </form>
+    <!-- CIERRO EL FORMULARIO *-->
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
