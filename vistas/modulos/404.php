@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Página No Encontrada
+        Página En mantenimiento
         
       </h1>
       <ol class="breadcrumb">
@@ -24,7 +24,7 @@
             <h3>
             <i class="fa fa-warning text-primary"></i> 
 
-              Oooops! Página No Encontrada.
+              Oooops! Página en mantenimiento.
 
             <p>
               Ingresa al Menu lateral y allí podras encontrar las páginas disponibles. Tambien puuedes regresar haciendo <a href="inicio">Click aquí</a>
