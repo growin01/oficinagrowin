@@ -2,7 +2,7 @@
      <!-- ====================================
   lado izquiedo
 ========================================-->
-<div class="col-xs-4 pull-left">
+<div class="col-xs-12">
     <div class="login-box" style="padding-left: 10px;">
   
   
@@ -70,43 +70,4 @@
     
 
 </div>
-
-<!-- ====================================
-  lado derecho
-========================================-->
-
-<div id="myCarousel" class="carousel slide col-xs-8 pull-right" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="vistas/img/plantilla/imagen-01.jpeg" class="d-block w-100 img-responsive" alt="First slide">
-           
-        </div>
-        <div class="item">
-            <img src="vistas/img/plantilla/imagen-02.jpeg" class="d-block w-100 img-responsive" alt="First slide">
-        </div>
-        <div class="item">
-            <img src="vistas/img/plantilla/imagen-03.jpeg" class="d-block w-100 img-responsive" alt="First slide">
-        </div>
-        <div class="item">
-            <img src="vistas/img/plantilla/imagen-04.jpeg" class="d-block w-100 img-responsive" alt="First slide">
-        </div>
-    </div>
-
-    <!-- Controls -->
-   
-</div>
-<!-- ====================================
-  fin lado derecho
-========================================-->
-</div><!-- ===CONTENEDOR========-->
-
 
